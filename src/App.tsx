@@ -4,7 +4,6 @@ import Features from './components/Features';
 import MarketUSP from './components/MarketUSP';
 import Technology from './components/Technology';
 import MVPEconomics from './components/MVPEconomics';
-import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
@@ -19,7 +18,6 @@ function App() {
       <MarketUSP />
       <Technology />
       <MVPEconomics />
-      <Testimonials />
       <CTA />
       <Footer />
     </div>
