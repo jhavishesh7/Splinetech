@@ -7,10 +7,12 @@ import MVPEconomics from './components/MVPEconomics';
 import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
+import CustomCursor from './components/CustomCursor';
 
 function App() {
   return (
     <div className="min-h-screen bg-black">
+      <CustomCursor />
       <Hero />
       <Model3D />
       <Features />

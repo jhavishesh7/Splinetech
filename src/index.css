@@ -11,27 +11,65 @@ body {
   cursor: none;
 }
 
-body * {
-  cursor: none;
-}
-
-/* Show cursor on interactive elements for better UX */
-a, button, input, textarea, select, [role="button"], [tabindex] {
-  cursor: pointer !important;
-}
-
-a:hover, button:hover, input:hover, textarea:hover, select:hover, [role="button"]:hover, [tabindex]:hover {
-  cursor: pointer !important;
-}
-
-/* Re-enable cursor on touch devices (mobile/tablets) */
-@media (hover: none) and (pointer: coarse) {
-  body, body * {
-    cursor: auto;
+/* Hide default cursor on desktop, show on touch devices */
+@media (hover: hover) {
+  * {
+    cursor: none !important;
   }
   
   a, button, input, textarea, select, [role="button"], [tabindex] {
-    cursor: pointer;
+    cursor: none !important;
+  }
+}
+
+/* Custom glowing cursor */
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.8) 0%, rgba(16, 185, 129, 0.6) 50%, transparent 70%);
+  box-shadow: 
+    0 0 20px rgba(6, 182, 212, 0.8),
+    0 0 40px rgba(16, 185, 129, 0.6),
+    0 0 60px rgba(6, 182, 212, 0.4),
+    0 0 80px rgba(16, 185, 129, 0.3);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, box-shadow 0.3s ease;
+  mix-blend-mode: screen;
+}
+
+.custom-cursor.hover {
+  width: 40px;
+  height: 40px;
+  box-shadow: 
+    0 0 30px rgba(6, 182, 212, 1),
+    0 0 60px rgba(16, 185, 129, 0.8),
+    0 0 90px rgba(6, 182, 212, 0.6),
+    0 0 120px rgba(16, 185, 129, 0.4);
+}
+
+.custom-cursor-trail {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.6) 0%, transparent 70%);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.8);
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  mix-blend-mode: screen;
+}
+
+/* Hide custom cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor,
+  .custom-cursor-trail {
+    display: none;
   }
 }
 
