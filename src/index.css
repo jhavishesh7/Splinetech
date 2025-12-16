@@ -1,0 +1,344 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  cursor: none;
+}
+
+body * {
+  cursor: none;
+}
+
+/* Show cursor on interactive elements for better UX */
+a, button, input, textarea, select, [role="button"], [tabindex] {
+  cursor: pointer !important;
+}
+
+a:hover, button:hover, input:hover, textarea:hover, select:hover, [role="button"]:hover, [tabindex]:hover {
+  cursor: pointer !important;
+}
+
+/* Re-enable cursor on touch devices (mobile/tablets) */
+@media (hover: none) and (pointer: coarse) {
+  body, body * {
+    cursor: auto;
+  }
+  
+  a, button, input, textarea, select, [role="button"], [tabindex] {
+    cursor: pointer;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes floatDelayed {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(6, 182, 212, 0.8);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.slide-in-up {
+  animation: slideInUp 0.8s ease-out forwards;
+}
+
+.slide-in {
+  animation: slideIn 0.8s ease-out forwards;
+}
+
+.bounce-in {
+  animation: bounceIn 0.6s ease-out forwards;
+}
+
+.floating-icon {
+  animation: float 3s ease-in-out infinite;
+}
+
+.floating-icon-delayed {
+  animation: floatDelayed 3.5s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Responsive breakpoints for mobile */
+@media (max-width: 475px) {
+  .crazy-text {
+    font-size: 2rem !important;
+    animation: crazyGradient 4s ease infinite, glitch 0.2s ease-in-out infinite, textShake 0.4s ease-in-out infinite;
+    line-height: 1.2;
+  }
+  
+  .fade-in-card {
+    animation-duration: 0.6s;
+  }
+  
+  .hero-content {
+    animation-duration: 0.8s;
+  }
+  
+  /* Adjust spacing for small screens */
+  .hero-section {
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile */
+  }
+}
+
+@media (min-width: 476px) and (max-width: 639px) {
+  .crazy-text {
+    animation: crazyGradient 4s ease infinite, glitch 0.18s ease-in-out infinite, textShake 0.35s ease-in-out infinite;
+  }
+}
+
+/* Reduce animation intensity on mobile for better performance */
+@media (max-width: 768px) {
+  .crazy-text {
+    text-shadow: 0 0 20px rgba(6, 182, 212, 0.4), 0 0 40px rgba(16, 185, 129, 0.2);
+  }
+  
+  .floating-icon,
+  .floating-icon-delayed {
+    animation-duration: 4s;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 320px) {
+  .crazy-text {
+    font-size: 1.75rem !important;
+    animation: crazyGradient 5s ease infinite, glitch 0.25s ease-in-out infinite, textShake 0.5s ease-in-out infinite;
+    line-height: 1.1;
+  }
+  
+  .hero-section {
+    padding: 1rem 0;
+  }
+}
+
+/* Ensure text doesn't overflow on any screen */
+.crazy-text {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Optimize animations for better mobile performance */
+@media (prefers-reduced-motion: reduce) {
+  .crazy-text,
+  .fade-in-card,
+  .hero-content,
+  .floating-icon,
+  .floating-icon-delayed {
+    animation: none !important;
+  }
+  
+  .crazy-text {
+    background: linear-gradient(90deg, #06b6d4, #10b981);
+    background-size: 200% 200%;
+    animation: crazyGradient 6s ease infinite !important;
+  }
+}
+
+/* Crazy text animation */
+@keyframes crazyGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes glitch {
+  0%, 100% {
+    transform: translate(0);
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  10% {
+    transform: translate(-1px, 1px);
+    filter: hue-rotate(90deg) brightness(1.2);
+  }
+  20% {
+    transform: translate(1px, -1px);
+    filter: hue-rotate(180deg) brightness(0.8);
+  }
+  30% {
+    transform: translate(-1px, -1px);
+    filter: hue-rotate(270deg) brightness(1.1);
+  }
+  40% {
+    transform: translate(1px, 1px);
+    filter: hue-rotate(360deg) brightness(1);
+  }
+  50% {
+    transform: translate(-1px, 0);
+    filter: hue-rotate(45deg) brightness(1.3);
+  }
+  60% {
+    transform: translate(1px, 0);
+    filter: hue-rotate(135deg) brightness(0.9);
+  }
+  70% {
+    transform: translate(0, -1px);
+    filter: hue-rotate(225deg) brightness(1.1);
+  }
+  80% {
+    transform: translate(0, 1px);
+    filter: hue-rotate(315deg) brightness(1);
+  }
+  90% {
+    transform: translate(0);
+    filter: hue-rotate(0deg) brightness(1);
+  }
+}
+
+@keyframes textShake {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(-1px) translateY(1px);
+  }
+  50% {
+    transform: translateX(1px) translateY(-1px);
+  }
+  75% {
+    transform: translateX(-1px) translateY(-1px);
+  }
+}
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.crazy-text {
+  background: linear-gradient(
+    90deg,
+    #06b6d4,
+    #10b981,
+    #22d3ee,
+    #34d399,
+    #06b6d4,
+    #10b981
+  );
+  background-size: 300% 300%;
+  animation: crazyGradient 4s ease infinite, glitch 0.15s ease-in-out infinite, textShake 0.3s ease-in-out infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  position: relative;
+  display: inline-block;
+  text-shadow: 0 0 30px rgba(6, 182, 212, 0.5), 0 0 60px rgba(16, 185, 129, 0.3);
+}
+
+.fade-in-card {
+  opacity: 0;
+  animation: fadeInCard 0.8s ease-out forwards;
+}
+
+.hero-content {
+  opacity: 0;
+  animation: fadeIn 1s ease-out 0.1s forwards;
+}
