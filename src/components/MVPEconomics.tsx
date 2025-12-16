@@ -1,4 +1,4 @@
-import { DollarSign, Users, TrendingUp, Package } from 'lucide-react';
+import { DollarSign, TrendingUp, Package } from 'lucide-react';
 
 const costBreakdown = [
   { label: 'IMU Sensor', cost: 500, color: 'from-cyan-500 to-cyan-600' },
@@ -115,30 +115,6 @@ export default function MVPEconomics() {
                   </span>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-gradient-to-r from-cyan-900/30 to-green-900/30 rounded-2xl p-8 border border-cyan-500/30">
-          <div className="flex items-center gap-3 mb-4">
-            <Users className="w-8 h-8 text-cyan-400" />
-            <h3 className="text-2xl font-bold text-white">MVP Development Status</h3>
-          </div>
-          <p className="text-gray-300 mb-4">
-            Prototype completed with successful pilot testing among 50 students. Feedback shows 92% user satisfaction and 85% improvement in posture awareness within 2 weeks.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
-            <div className="text-center p-4 bg-gray-900/50 rounded-lg">
-              <div className="text-3xl font-bold text-cyan-400 mb-1">50</div>
-              <div className="text-sm text-gray-400">Beta Testers</div>
-            </div>
-            <div className="text-center p-4 bg-gray-900/50 rounded-lg">
-              <div className="text-3xl font-bold text-green-400 mb-1">92%</div>
-              <div className="text-sm text-gray-400">Satisfaction Rate</div>
-            </div>
-            <div className="text-center p-4 bg-gray-900/50 rounded-lg">
-              <div className="text-3xl font-bold text-cyan-400 mb-1">85%</div>
-              <div className="text-sm text-gray-400">Posture Improvement</div>
             </div>
           </div>
         </div>
